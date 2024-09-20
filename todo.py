@@ -32,6 +32,7 @@ class TodoList:
         if not self.tasks:
             print("No tasks found.")
         else:
+            
             # ANSI excape codes for colors
             green = "\033[92m"
             red = "\033[91m"
