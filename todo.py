@@ -32,9 +32,21 @@ class TodoList:
         if not self.tasks:
             print("No tasks found.")
         else:
+            # ANSI excape codes for colors
+            green = "\033[92m"
+            red = "\033[91m"
+            reset = "\033[0m"
+           
             for i, task in enumerate(self.tasks, 1):
+                # determine task status
                 status = "√" if task["completed"] else "x"
-                print(f"{i}. {task['task']} [{status}]")
+                task_text = f"{i}. {task['task']} [{status}]"
+            
+                # Apply color based on completion
+                if task["completed"]:
+                    print(f"{green}{task_text}{reset}")
+                else:
+                    print(f"{red}{task_text}{reset}")
 
     # Mark a task as complete
     def complete_task(self, task_number):
@@ -54,6 +66,7 @@ class TodoList:
         else:
             print("Invalid task number.")
 
+# Main function to run the app
 def main():
     todo = TodoList()
 
